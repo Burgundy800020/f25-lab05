@@ -36,7 +36,7 @@ public class Frogger {
      */
     public boolean move(boolean forward) {
         int nextPosition = this.position + (forward ? 1 : -1);
-        if (!isValid(nextPosition) || isOccupied(nextPosition)) {
+        if (!isValid(nextPosition) || road.isOccupied(nextPosition)) {
             return false;
         }
         this.position = nextPosition;
@@ -44,6 +44,8 @@ public class Frogger {
     }
 
     // TODO: Do you notice any issues here?
+    // ANTIPATTERN: "Feature Envy"
+    // occupied array is owned by Road class
     public boolean isOccupied(int position) {
         boolean[] occupied = this.road.getOccupied();
         return occupied[position];
