@@ -46,11 +46,7 @@ public class Frogger {
     // TODO: Do you notice any issues here?
     // ANTIPATTERN: "Feature Envy"
     // occupied array is owned by Road class
-    public boolean isOccupied(int position) {
-        boolean[] occupied = this.road.getOccupied();
-        return occupied[position];
-    }
-    
+
     public boolean isValid(int position) {
         if (position < 0) return false;
         boolean[] occupied = this.road.getOccupied();
