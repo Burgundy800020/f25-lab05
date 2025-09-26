@@ -27,6 +27,9 @@ public interface Shape {
         try {
             for (Line line : lines) {
                 // TODO: what is the purpose of the code there?
+                // ANTIPATTERN: "instanceof"
+                // writer.write()
+                // Let JPEGWriter convert line to JPEG format
                 if (writer instanceof JPEGWriter) {
                     writer.write(line.toJPEG());
                 } else if (writer instanceof PNGWriter) {

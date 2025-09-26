@@ -30,10 +30,13 @@ public class Drawing {
      */
     public void draw(String format, String filename) {
         // TODO: Do you notice any issues here?
+        // ANTIPATTERN: "Excessive if"
         if (format.equals("jpeg")) {
             try (Writer writer = new JPEGWriter(filename + ".jpeg")) {
                 for (Shape shape : this.shapes) {
                     // TODO: What is the issue of the behavior here?
+                    // Shapes already know how to convert themselves to lines
+                    // Just shape.draw(writer)
                     Line[] lines = shape.toLines();
                     shape.draw(writer, lines);
                 }
